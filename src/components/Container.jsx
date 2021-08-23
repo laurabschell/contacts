@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Favorites from './Favorites'
 import ContactsList from './ContactsList'
+import Overview from './Overview'
 
 const Main = styled.main`
     display: flex;
@@ -16,6 +17,7 @@ const Main = styled.main`
 function Container() {
     return (
         <Main>
+            <Overview />
             <Favorites />
             <ContactsList />
 
