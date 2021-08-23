@@ -1,10 +1,13 @@
 import React from 'react'
+import CardDisplay from './CardDisplay'
+import SectionTitle from './SectionTitle'
 
 function Overview() {
     return (
-        <div>
-            
-        </div>
+        <>
+            <SectionTitle />
+            <CardDisplay />           
+        </>
     )
 }
 

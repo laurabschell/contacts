@@ -14,7 +14,7 @@ const Main = styled.main`
     }
 `
 
-function Container() {
+function Body() {
     return (
         <Main>
             <Overview />
@@ -25,4 +25,4 @@ function Container() {
     )
 }
 
-export default Container
+export default Body

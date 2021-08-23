@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FaRegHeart, FaBan, FaHashtag } from 'react-icons/fa'
+import { FaBan, FaHashtag } from 'react-icons/fa'
 import { Colors } from './styling-variables'
 import UserImg from '../assets/user.png' 
 

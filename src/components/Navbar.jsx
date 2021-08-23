@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaPlus } from 'react-icons/fa';
 import { Colors } from './styling-variables'
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 const Header = styled.header`
     background-color: ${Colors.navbarBgColor};
@@ -44,11 +45,12 @@ const MenuItems = styled.li`
     font-weight: 500;
     cursor: pointer;
 
-    &:hover {
-        color: ${Colors.newGreen};
-        transition: .5s;
-    }
+    
 `
+const NavLinks = {
+    textDecoration: "none",
+    color: "black",
+}
 
 const NewButton = styled.a`
     background-color: ${Colors.newGreen};
@@ -56,39 +58,47 @@ const NewButton = styled.a`
     color: beige;
     padding: .5rem .8rem;
     border-radius: 3px;
+    font-size: .7rem;
     font-weight: 700;
     text-transform: uppercase;
     border: none;
     box-shadow: ${Colors.shadow};
     cursor: pointer;
+    display: flex;
 `
 
-// no me los toma por estar dentro del NewButton
+
 const FaPlusIconStyles = {
     color: "white",
     margin: "0 .3rem 0 0",
 }
 
-
-
 const Navbar = () => {
     return (
-        <Header>
-            <Nav>
-                <TitleH1>Contacts</TitleH1>
-                <Navigation>
-                    <Menu>
-                        <MenuItems href="">Overview</MenuItems>
-                        <MenuItems href="">Contacts</MenuItems>                        
-                        <MenuItems href="">Favorites</MenuItems>                        
-                    </Menu>
-                    <NewButton>
-                        <FaPlus syles={FaPlusIconStyles} />
-                        New
-                    </NewButton>
-                </Navigation>
-            </Nav>
-        </Header>
+        <Router>
+            <Header>
+                <Nav>
+                    <TitleH1>Contacts</TitleH1>
+                    <Navigation>
+                        <Menu>
+                            <MenuItems>
+                                <Link style={{NavLinks}} to="/">Overview</Link>
+                            </MenuItems>
+                            <MenuItems>
+                                <Link style={{NavLinks}} to="/contacts-list">Contacts</Link>
+                            </MenuItems>
+                            <MenuItems>
+                                <Link style={{NavLinks}} to="/favorites">Favorites</Link>
+                            </MenuItems>
+                        </Menu>
+                        <NewButton>
+                            <FaPlus style={FaPlusIconStyles} />
+                            New
+                        </NewButton>
+                    </Navigation>
+                </Nav>
+            </Header>
+        </Router>
     )
 }
 
