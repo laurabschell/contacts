@@ -1,8 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
-import { FaPlus } from 'react-icons/fa';
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+import Button from './Button'
 import { Colors } from './styling-variables'
-import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 const Header = styled.header`
     background-color: ${Colors.navbarBgColor};
@@ -43,62 +43,35 @@ const MenuItems = styled.li`
     list-style-type: none;
     margin: 0 2rem;
     font-weight: 500;
-    cursor: pointer;
-
-    
+    cursor: pointer; 
 `
+
 const NavLinks = {
     textDecoration: "none",
     color: "black",
 }
 
-const NewButton = styled.a`
-    background-color: ${Colors.newGreen};
-    text-decoration: none;
-    color: beige;
-    padding: .5rem .8rem;
-    border-radius: 3px;
-    font-size: .7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    border: none;
-    box-shadow: ${Colors.shadow};
-    cursor: pointer;
-    display: flex;
-`
-
-
-const FaPlusIconStyles = {
-    color: "white",
-    margin: "0 .3rem 0 0",
-}
-
 const Navbar = () => {
     return (
-        <Router>
-            <Header>
-                <Nav>
-                    <TitleH1>Contacts</TitleH1>
-                    <Navigation>
-                        <Menu>
-                            <MenuItems>
-                                <Link style={{NavLinks}} to="/">Overview</Link>
-                            </MenuItems>
-                            <MenuItems>
-                                <Link style={{NavLinks}} to="/contacts-list">Contacts</Link>
-                            </MenuItems>
-                            <MenuItems>
-                                <Link style={{NavLinks}} to="/favorites">Favorites</Link>
-                            </MenuItems>
-                        </Menu>
-                        <NewButton>
-                            <FaPlus style={FaPlusIconStyles} />
-                            New
-                        </NewButton>
-                    </Navigation>
-                </Nav>
-            </Header>
-        </Router>
+        <Header>
+            <Nav>
+                <TitleH1>Contacts</TitleH1>
+                <Navigation>
+                    <Menu>
+                        <MenuItems>
+                            <Link style={{NavLinks}} to="/">Overview</Link>
+                        </MenuItems>
+                        <MenuItems>
+                            <Link style={{NavLinks}} to="/contacts-list">Contacts</Link>
+                        </MenuItems>
+                        <MenuItems>
+                            <Link style={{NavLinks}} to="/favorites">Favorites</Link>
+                        </MenuItems>
+                    </Menu>
+                    <Button />
+                </Navigation>
+            </Nav>
+        </Header>
     )
 }
 
