@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import UserImg from '../assets/user.png'
 import { Colors } from './styling-variables'
-import { FaBan } from 'react-icons/fa'
+import { FaRegHeart, FaBan } from 'react-icons/fa'
 
 const CardContainer = styled.div`
     background-color: ${Colors.navbarBgColor};
@@ -27,15 +26,22 @@ const CardText = styled.div`
     font-weight: 100;
 `
 
-function Card() {
+function renderFav(fav) {
+    if(fav === true) {
+        return <FaBan style={{color: Colors.trashColor}} />
+    }
+    return <FaRegHeart style={{color: Colors.heartColor}} />
+}
+
+function Card(props) {
     return (
         <CardContainer>
-            <ImgCard src={UserImg}/>
+            <ImgCard src={props.UserImg}/>
             <CardText>
-                <h4>user name</h4>
-                <p style={{fontSize: '.8rem'}}>email@email.com</p>
+                <h4>{props.UserName}</h4>
+                <p style={{fontSize: '.8rem'}}>{props.UserEmail}</p>
             </CardText>
-            <FaBan style={{color: Colors.trashColor}} />
+            <div>{renderFav(props.fav)}</div>
         </CardContainer>
     )
 }
