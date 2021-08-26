@@ -8,17 +8,23 @@ import Overview from './components/Overview';
  
 function App() {
   return (
-    <div className='App'>
-      <Router>
-       <Navbar />
+    <Router>
+      <div className='App'>
+        <Navbar />
         <Switch>
-            <Route path="/" component={Overview} />
-            <Route path="/favorites" component={Favorites} />
-            <Route path="/contacts-list" component={ContactsList} />
+            <Route path="/">
+              <Overview />
+            </Route>
+            <Route path="/favorites">
+              <Favorites />
+            </Route>
+            <Route path="/contacts-list">
+              <ContactsList />
+            </Route>
         </Switch>
-      </Router>
+      </div>
       <GlobalStyle />
-    </div>
+    </Router>
   );
 }
 

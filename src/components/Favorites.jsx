@@ -10,7 +10,10 @@ const FavSection = styled.div`
 function Favorites() {
     return (
         <FavSection>
-            <SectionTitle />
+            <SectionTitle 
+                title="Favorites" 
+                // icon={fav}
+            />
             <CardDisplay />
         </FavSection>
     )

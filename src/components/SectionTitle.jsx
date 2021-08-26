@@ -21,11 +21,11 @@ const faheart = {
     color: Colors.heartColor,
 }
 
-function SectionTitle() {
+function SectionTitle(props) {
     return (
         <SectTitle>
-            <FaRegHeart style={faheart} />
-            <Title>Favorites</Title>
+            {/* <FaRegHeart style={faheart} /> */}
+            <Title>{props.title}</Title>
         </SectTitle>
     )
 }

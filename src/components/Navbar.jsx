@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { BrowserRouter as Router, Link} from 'react-router-dom';
 import Button from './Button'
 import { Colors } from './styling-variables'
 
@@ -55,21 +55,30 @@ const Navbar = () => {
     return (
         <Header>
             <Nav>
+                <Router>
+
                 <TitleH1>Contacts</TitleH1>
                 <Navigation>
                     <Menu>
                         <MenuItems>
-                            <Link style={{NavLinks}} to="/">Overview</Link>
+                            <Link style={{NavLinks}} to="/">
+                                Overview
+                            </Link>
                         </MenuItems>
                         <MenuItems>
-                            <Link style={{NavLinks}} to="/contacts-list">Contacts</Link>
+                            <Link style={{NavLinks}} to="/contacts-list">
+                                Contacts
+                            </Link>
                         </MenuItems>
                         <MenuItems>
-                            <Link style={{NavLinks}} to="/favorites">Favorites</Link>
+                            <Link style={{NavLinks}} to="/favorites">
+                                Favorites
+                            </Link>
                         </MenuItems>
                     </Menu>
                     <Button />
                 </Navigation>
+                </Router>
             </Nav>
         </Header>
     )

@@ -1,6 +1,4 @@
 import React from 'react'
-import CardDisplay from './CardDisplay'
-import SectionTitle from './SectionTitle'
 import styled from 'styled-components'
 import ContactsList from './ContactsList'
 import Favorites from './Favorites'
@@ -18,14 +16,8 @@ const Main = styled.main`
 function Overview() {
     return (
         <Main>
-            <Favorites>
-                <SectionTitle />
-                <CardDisplay />
-            </Favorites>           
-            <ContactsList>
-                <SectionTitle />
-                <CardDisplay />
-            </ContactsList>           
+            <Favorites />
+            <ContactsList />
         </Main>
     )
 }

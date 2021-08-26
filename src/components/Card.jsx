@@ -16,24 +16,19 @@ const ImgCard = styled.img`
     border: 2.8px solid rgba(0, 0, 0, 0.224);
     border-radius: 6px;
     width: 5em;
-    border: 2.8px solid ${Colors.heartColor};
+    border:2.8px solid ${props => props.fav ? Colors.heartColor : '#00000039'};
 `
+
 
 const CardText = styled.div`
     font-family: 'Rubik', sans-serif;
     margin: 1rem;
     font-size: 1rem;
     font-weight: 100;
-`
-
-function renderFav(fav) {
-    if(fav === true) {
-        return <FaBan style={{color: Colors.trashColor}} />
-    }
-    return <FaRegHeart style={{color: Colors.heartColor}} />
-}
+    `
 
 function Card(props) {
+    console.log(props.fav);
     return (
         <CardContainer>
             <ImgCard src={props.UserImg}/>
@@ -41,7 +36,8 @@ function Card(props) {
                 <h4>{props.UserName}</h4>
                 <p style={{fontSize: '.8rem'}}>{props.UserEmail}</p>
             </CardText>
-            <div>{renderFav(props.fav)}</div>
+            {props.fav && <FaBan style={{color: Colors.trashColor}} />}
+            {!props.fav && <FaRegHeart style={{color: Colors.heartColor}} />}
         </CardContainer>
     )
 }

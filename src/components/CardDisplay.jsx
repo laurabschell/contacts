@@ -21,13 +21,13 @@ function CardDisplay() {
                 UserImg={userImg}
                 UserName="User Name"
                 UserEmail="user@email.com"
-                fav={false}
+                fav={true}
                 />
             <Card 
                 UserImg={userImg}
                 UserName="User Name"
                 UserEmail="user@email.com" 
-                fav={false}
+                fav={true}
                 />
             <Card 
                 UserImg={userImg}
