@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components'
-import { BrowserRouter as Router, Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Button from './Button'
-import { Colors } from './styling-variables'
+import { Colors } from '../styles/styling-variables'
 
 const Header = styled.header`
     background-color: ${Colors.navbarBgColor};
@@ -17,7 +17,7 @@ const Header = styled.header`
 
 const Nav = styled.nav`
     display: flex;
-    width: 60vw;
+    width: 65vw;
     height: 100%;
     margin: 0 auto;
     justify-content: space-between;
@@ -25,7 +25,7 @@ const Nav = styled.nav`
 `
 
 const TitleH1 = styled.h1`
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-weight: 500;
 `
 
@@ -36,49 +36,46 @@ const Navigation = styled.div`
 
 const Menu = styled.ul`
     display: flex;
-    margin: 0 5rem;
+    font-size: .9em;
+    margin: 0 1rem;
 `
 
 const MenuItems = styled.li`
     list-style-type: none;
     margin: 0 2rem;
-    font-weight: 500;
-    cursor: pointer; 
 `
 
-const NavLinks = {
+const NavLinksStyle = {
     textDecoration: "none",
-    color: "black",
+    color: "black"
 }
 
-const Navbar = () => {
+function Navbar() {
     return (
         <Header>
             <Nav>
-                <Router>
 
                 <TitleH1>Contacts</TitleH1>
                 <Navigation>
                     <Menu>
                         <MenuItems>
-                            <Link style={{NavLinks}} to="/">
+                            <Link style={NavLinksStyle} to="/">
                                 Overview
                             </Link>
                         </MenuItems>
                         <MenuItems>
-                            <Link style={{NavLinks}} to="/contacts-list">
+                            <Link style={NavLinksStyle} to="/contacts-list">
                                 Contacts
                             </Link>
                         </MenuItems>
                         <MenuItems>
-                            <Link style={{NavLinks}} to="/favorites">
+                            <Link style={NavLinksStyle} to="/favorites">
                                 Favorites
                             </Link>
                         </MenuItems>
                     </Menu>
                     <Button />
                 </Navigation>
-                </Router>
             </Nav>
         </Header>
     )

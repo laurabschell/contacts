@@ -1,7 +1,8 @@
 import React from 'react'
-import { FaRegHeart } from 'react-icons/fa'
+import { FaHashtag } from 'react-icons/fa'
+// FaRegHeart, 
 import styled from 'styled-components'
-import { Colors } from './styling-variables'
+import { Colors } from '../styles/styling-variables'
 
 const SectTitle = styled.div`
     margin: 0 0 2rem 0;
@@ -14,7 +15,7 @@ const Title = styled.h2`
     font-weight: 500;
 `
 
-const faheart = {
+const icon = {
     fontSize: '1.9rem',
     fontWeight: '500',
     margin: '0 .3rem 0 0',
@@ -24,7 +25,7 @@ const faheart = {
 function SectionTitle(props) {
     return (
         <SectTitle>
-            {/* <FaRegHeart style={faheart} /> */}
+            <FaHashtag style={{icon}}/>
             <Title>{props.title}</Title>
         </SectTitle>
     )

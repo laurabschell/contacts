@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Colors } from './styling-variables'
+import { Colors } from '../styles/styling-variables'
 
 const NewFormContainer = styled.section`
     background-color: ${Colors.shadow};

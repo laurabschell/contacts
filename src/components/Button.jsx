@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaPlus } from 'react-icons/fa';
 import styled from 'styled-components'
-import { Colors } from './styling-variables'
+import { Colors } from '../styles/styling-variables'
 
 const NewButton = styled.a`
     background-color: ${Colors.newGreen};
