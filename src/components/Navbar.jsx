@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components'
-import { Link } from 'react-router-dom';
 import Button from './Button'
 import { Colors } from '../styles/styling-variables'
+import { Link } from 'react-router-dom';
 
 const Header = styled.header`
     background-color: ${Colors.navbarBgColor};
-    height: 10vh;
-    min-height: 60px;
+    height: 8vh;
     position: fixed;
     top: 0;
     z-index: 1;
@@ -74,6 +73,18 @@ function Navbar() {
                             </Link>
                         </MenuItems>
                     </Menu>
+
+                    {/* <Switch>
+                        <Route path="/">
+                            <Overview />
+                        </Route>
+                        <Route path="/favorites">
+                            <Favorites />
+                        </Route>
+                        <Route path="/contacts-list">
+                            <ContactsList />
+                        </Route>
+                    </Switch> */}
                     <Button />
                 </Navigation>
             </Nav>

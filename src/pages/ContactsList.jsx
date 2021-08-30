@@ -4,21 +4,23 @@ import CardDisplay from '../components/CardDisplay'
 import SectionTitle from '../components/SectionTitle'
 
 const ContactsListsection = styled.div`
-    margin: 4em auto 0 auto;
+    margin: 1em auto 0 auto;
     width: 60vw;
 `
 
-//     display: flex;
-//     justify-content: space-between;
-// `
+function ContactsList(props) {
 
-function ContactsList() {
+
     return (
         <ContactsListsection>
             <SectionTitle 
                 title="Contacts List" 
+                icon={props.icon}
             />
-            <CardDisplay />
+            <CardDisplay 
+                lengthDisplay={props.lengthDisplay} 
+                fav={props.fav}
+            />
         </ContactsListsection>
     )
 }
