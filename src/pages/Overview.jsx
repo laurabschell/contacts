@@ -1,31 +1,24 @@
-import React from 'react'
-import styled from 'styled-components'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+// import styled from 'styled-components'
+import Form from '../components/Form'
+import useGetUsers from '../components/hooks/useGetUsers';
 import ContactsList from './ContactsList'
 import Favorites from './Favorites'
-
-// const Main = styled.main`
-//     display: flex;
-//     flex-direction: column;
-
-//     /* &::before {
-//         content: '';
-//         height: 5vh;
-//     } */
-// `
 
 function Overview() {
     return (
         <>
             <Favorites 
-                lengthDisplay={4} 
-                fav={true}
                 icon="heart"
-                />
+                // lengthDisplay={4} 
+                fav={true}
+            />
             <ContactsList 
-                lengthDisplay={16} 
-                fav={false}
                 icon="hash"
-                />
+                // lengthDisplay={16} 
+                fav={false}
+            />
         </>
     )
 }

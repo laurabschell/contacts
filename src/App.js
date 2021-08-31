@@ -2,28 +2,22 @@ import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import ContactsList from './pages/ContactsList';
 import Favorites from './pages/Favorites';
-import GlobalStyle from './styles/GlobalStyle';
-import Navbar from './components/Navbar';
 import Overview from './pages/Overview';
+import Layout from './components/Layout';
+import useGetUsers from './components/hooks/useGetUsers';
  
-function App() {
+const App = () => {
+  useGetUsers();
+
   return (
     <Router>
-      <div className='App'>
-        <Navbar />
+      <Layout>
         <Switch>
-            <Route path="/">
-              <Overview />
-            </Route>
-            <Route path="/favorites">
-              <Favorites />
-            </Route>
-            <Route path="/contacts-list">
-              <ContactsList />
-            </Route>
-        </Switch>
-      </div>
-      <GlobalStyle />
+              <Route exact path="/" component={Overview} />
+              <Route exact path="/favorites" component={Favorites} />
+              <Route exact path="/contacts-list" component={ContactsList} />
+          </Switch>
+      </Layout>
     </Router>
   );
 }

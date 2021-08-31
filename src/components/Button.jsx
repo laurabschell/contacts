@@ -3,10 +3,11 @@ import { FaPlus } from 'react-icons/fa';
 import styled from 'styled-components'
 import { Colors } from '../styles/styling-variables'
 
-const NewButton = styled.a`
-    background-color: ${Colors.newGreen};
-    text-decoration: none;
-    color: beige;
+const ButtonStyles = styled.a`
+    background-color: ${props => props.text === "new" ? Colors.newGreen : 'beige'};
+    color: ${props => props.text === "new" ? 'white' : Colors.fontColor};
+    float: right;
+    width: 4rem;
     padding: .5rem .8rem;
     border-radius: 3px;
     font-size: .7rem;
@@ -23,12 +24,12 @@ const FaPlusIconStyles = {
     margin: "0 .3rem 0 0",
 }
 
-function Button() {
+function Button(props) {
     return (
-        <NewButton>
-            <FaPlus style={FaPlusIconStyles} />
-            New
-        </NewButton>
+        <ButtonStyles text={props.text}>
+            {props.text === "new" && <FaPlus style={FaPlusIconStyles} />}
+            <p>{props.text}</p>
+        </ButtonStyles>
     )
 }
 

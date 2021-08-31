@@ -13,14 +13,14 @@ export const favFalse = (value) => {
 };
 
 const favReducer = (state = true, action) => {
-switch (action.type) {
-    case "FAVTRUE":
-    return state + action.value;
-    case "FAVFALSE":
-    return state - action.value;
-    default:
-    return state;
-}
+    switch (action.type) {
+        case "FAVTRUE":
+            return state + action.value;
+        case "FAVFALSE":
+            return state - action.value;
+        default:
+            return state;
+    }
 };
 
 export default favReducer;

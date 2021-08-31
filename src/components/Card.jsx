@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Colors } from '../styles/styling-variables'
-import { FaRegHeart, FaBan } from 'react-icons/fa'
-import { connect } from 'react-redux'
-import { favFalse, favTrue } from "./store/favReducer";
+import IconButton from './IconButton'
+// import { FaRegHeart, FaBan } from 'react-icons/fa'
+// import { connect } from 'react-redux'
+// import { favFalse, favTrue } from "./store/favReducer";
 
 
 const CardContainer = styled.div`
@@ -32,11 +33,7 @@ const CardText = styled.div`
 
 function Card(props) {
 
-    const [fav, setFav] = useState();
-
-    // const handleToggleFav = () => {
-    //     setState(fav => !fav)
-    // } 
+    // const [fav, setFav] = useState();
 
     return (
         <CardContainer>
@@ -48,18 +45,10 @@ function Card(props) {
                 <h5>{props.UserFirstName} {props.UserLastName}</h5>
                 <p style={{fontSize: '.6rem'}}>{props.UserEmail}</p>
             </CardText>
-            {props.fav ? 
-                <FaBan 
-                    style={{color: Colors.trashColor, cursor:"pointer"}} 
-                    // onClick={() => props.dispatch(favFalse(true))}
-                    onClick={() => setFav(false)}
-                    /> : 
-                <FaRegHeart 
-                    style={{color: Colors.heartColor, cursor:"pointer"}} 
-                    // onClick={() => props.dispatch(favTrue(false))}
-                    onClick={() => setFav(true)}
-                    />
-            }
+            <IconButton 
+                fav={props.fav} 
+                onClick={() => props.handleToFav(props.id, props.fav)} 
+            />
         </CardContainer>
     )
 }

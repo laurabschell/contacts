@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 import SectionTitle from '../components/SectionTitle'
 import CardDisplay from '../components/CardDisplay'
+import { useState } from 'react'
 
 const FavSection = styled.div`
-    margin: 5em auto 0 auto;
+    margin: 2em auto 0 auto;
     width: 60vw;
 `
 
@@ -13,7 +14,7 @@ function Favorites(props) {
         <FavSection>
             <SectionTitle 
                 title="Favorites"
-                icon={props.icon}
+                icon="heart"
             />
             <CardDisplay 
                 lengthDisplay={props.lengthDisplay} 

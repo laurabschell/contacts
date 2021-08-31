@@ -1,14 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Colors } from '../styles/styling-variables'
+import Button from './Button'
 
 const NewFormContainer = styled.section`
-    background-color: ${Colors.shadow};
-    width: 50vw;
-    max-width: 550px;
-    height: 40vh;
-    min-height: 350px;
-    margin: 1.1em auto 0 auto;
+    background-color: ${Colors.newGreen};
+    width: 40vw;
+    /* max-width: 550px; */
+    height: 50vh;
+    /* min-height: 350px; */
+    margin: 0 auto 0 auto;
     border-radius: 0 0 5px 5px;
     box-shadow: ${Colors.shadow};
 `
@@ -16,12 +17,12 @@ const NewFormContainer = styled.section`
 const NewForm = styled.form`
     color: ${Colors.formsColor};
     font-weight: 700;
-    margin: 0 auto;
+    margin: 2rem auto 0 auto;
     padding: 2rem;
     width: 80%;
     height: 100%;
-    display: flexbox;
-    flex-direction: column;
+    /* display: flexbox; */
+    /* flex-direction: column; */
 `
 
 const Input = styled.input`
@@ -43,6 +44,16 @@ function Form() {
                 <Input name="name-input" type="text" placeholder="First Name" />
                 <Input name="name-input" type="text" placeholder="Last Name"/>
                 <Input name="email-input" type="text" placeholder="Email"/>
+                {/* <div className="field">
+                    <label>Enable as favorite </label>
+                    <input
+                    type="checkbox"
+                    name="fav"
+                    checked={this.state.fav}
+                    onChange={this.handleChange}
+                    />
+                </div> */}
+                <Button text="save" />
             </NewForm>
         </NewFormContainer>
     )

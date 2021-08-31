@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
+import Badge from './Badge'
 import Card from './Card'
 
 const CardListStyles = styled.div`
@@ -8,32 +10,26 @@ const CardListStyles = styled.div`
     flex-wrap: wrap;
     width: 90%;
     margin: 0 auto;
-    /* justify-content: center; */
 `
 
-function CardDisplay(props) {
-
-    // const fav = useSelector(state => state.fav);
-
-    const [users, setUsers] = useState([]);
-
-    useEffect(() => {
-        fetch('https://reqres.in/api/users?per_page=16')
-            .then((response) => response.json())
-            .then(data => setUsers(data.data))
-    }, [])
-
+const CardDisplay = ({
+    users = [],
+    lengthDisplay = 12
+    // handleToFav
+    }) => {
 
     return (
         <CardListStyles>
-            {users.slice(0, props.lengthDisplay).map((user) => (
+            {users.length === 0 ?
+            <Badge /> :
+            users.slice(0, lengthDisplay).map((user) => (
             <Card 
                 UserImg = {user.avatar}
                 UserFirstName= {user.first_name}
                 UserLastName= {user.last_name}
                 UserEmail= {user.email}
-                fav={props.fav}
                 UserId={user.id}
+                // handleToFav={handleToFav}
                 /> 
             ))}
         </CardListStyles>
