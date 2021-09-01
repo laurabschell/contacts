@@ -1,23 +1,23 @@
-export const favTrue = (value) => {
+export const favin = (value) => {
     return {
         type: "FAVTRUE",
         value
     };
 };
 
-export const favFalse = (value) => {
+export const favout = (value) => {
     return {
         type: "FAVFALSE",
         value
     };
 };
 
-const favReducer = (state = true, action) => {
+const favReducer = (state = false, action) => {
     switch (action.type) {
         case "FAVTRUE":
-            return state + action.value;
+            return action.value;
         case "FAVFALSE":
-            return state - action.value;
+            return action.value;
         default:
             return state;
     }

@@ -4,7 +4,7 @@ import userReducer from "./usersReducer";
 
 const rootReducer = combineReducers({
   userReducer: userReducer,
-  fav: favReducer
+  favReducer: favReducer
 });
 
 export default rootReducer;

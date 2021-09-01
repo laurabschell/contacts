@@ -7,17 +7,29 @@ import ContactsList from './ContactsList'
 import Favorites from './Favorites'
 
 function Overview() {
+
+    // const handleAddFavorite = (id, value) => {
+    //     const newItems = [...this.state.items];
+    //     const index = newItems.findIndex((item) => item.id === id);
+    //     newItems[index].isFavorite = value;
+    //     this.setState({
+    //         items: newItems
+    //     });
+    // }
+
     return (
         <>
             <Favorites 
                 icon="heart"
                 // lengthDisplay={4} 
-                fav={true}
+                // fav={true}
+                // handleAddFavorite={handleAddFavorite}
             />
             <ContactsList 
                 icon="hash"
+                // handleAddFavorite={handleAddFavorite}
                 // lengthDisplay={16} 
-                fav={false}
+                // fav={false}
             />
         </>
     )

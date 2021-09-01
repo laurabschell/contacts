@@ -14,7 +14,9 @@ const CardListStyles = styled.div`
 
 const CardDisplay = ({
     users = [],
-    lengthDisplay = 12
+    lengthDisplay = 12,
+    fav = false,
+    // handleAddFavorite
     // handleToFav
     }) => {
 
@@ -29,7 +31,8 @@ const CardDisplay = ({
                 UserLastName= {user.last_name}
                 UserEmail= {user.email}
                 UserId={user.id}
-                // handleToFav={handleToFav}
+                // fav = {this.fav}
+                // handleAddFavorite = {this.handleAddFavorite}
                 /> 
             ))}
         </CardListStyles>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { connect, useSelector } from "react-redux";
 import styled from 'styled-components'
 import { Colors } from '../styles/styling-variables'
 import IconButton from './IconButton'
@@ -32,34 +33,21 @@ const CardText = styled.div`
 `
 
 function Card(props) {
-
-    // const [fav, setFav] = useState();
-
+    const isfav = useSelector((state) => state.favReducer);
     return (
         <CardContainer>
             <ImgCard 
                 src={props.UserImg} 
-                style={{border:`2.8px solid ${props.fav ? Colors.heartColor : '#00000039'}`}}
+                style={{border:`2.8px solid ${isfav ? Colors.heartColor : '#00000039'}`}}
             />
             <CardText>
                 <h5>{props.UserFirstName} {props.UserLastName}</h5>
                 <p style={{fontSize: '.6rem'}}>{props.UserEmail}</p>
             </CardText>
-            <IconButton 
-                fav={props.fav} 
-                onClick={() => props.handleToFav(props.id, props.fav)} 
-            />
+            <IconButton />
         </CardContainer>
     )
 }
 
-// function mapStateToProps(state) {
-//     return {
-//         fav: state.fav
-//     }
-// }
-
-
-// export default connect(mapStateToProps)(Card);
 export default Card;
 

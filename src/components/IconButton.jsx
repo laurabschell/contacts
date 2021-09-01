@@ -1,24 +1,32 @@
 import React from 'react'
 import { FaRegHeart, FaBan } from 'react-icons/fa'
-import { Colors } from '../styles/styling-variables'
+// import { Colors } from '../styles/styling-variables'
+import { connect } from "react-redux";
+import { Colors } from '../styles/styling-variables';
+import { favin, favout } from "./store/favReducer";
+
 
 function IconButton(props) {
     return (
         <div>
-            {props.fav ? 
-                <FaBan 
-                    style={{color: Colors.trashColor, cursor:"pointer"}} 
-                    // onClick={() => props.dispatch(favFalse(true))}
-                    onClick={props.handleAddFav}
-                /> : 
-                <FaRegHeart 
-                    style={{color: Colors.heartColor, cursor:"pointer"}} 
-                    // onClick={() => props.dispatch(favTrue(false))}
-                    onClick={props.handleAddFav}
-                />
-            }
+            {!props.isFav ? (
+                <FaRegHeart style={{"color": Colors.heartColor}} onClick={() => props.favout(true)} />
+            ) : (
+                <FaBan onClick={() => props.favin(false)} />
+            )}
         </div>
     )
 }
 
-export default IconButton
+function mapStateToProps(state) {
+    return {
+        isFav: state.favReducer
+    };
+}
+  
+const mapDispatchToProps = {
+    favin,
+    favout
+};
+  
+export default connect(mapStateToProps, mapDispatchToProps)(IconButton);

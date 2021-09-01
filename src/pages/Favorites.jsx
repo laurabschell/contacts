@@ -17,7 +17,7 @@ function Favorites(props) {
                 icon="heart"
             />
             <CardDisplay 
-                lengthDisplay={props.lengthDisplay} 
+                // lengthDisplay={props.lengthDisplay} 
                 fav={props.fav}
             />
         </FavSection>
