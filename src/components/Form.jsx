@@ -6,10 +6,8 @@ import Button from './Button'
 const NewFormContainer = styled.section`
     background-color: ${Colors.newGreen};
     width: 40vw;
-    /* max-width: 550px; */
     height: 50vh;
-    /* min-height: 350px; */
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
     border-radius: 0 0 5px 5px;
     box-shadow: ${Colors.shadow};
 `
@@ -21,8 +19,6 @@ const NewForm = styled.form`
     padding: 2rem;
     width: 80%;
     height: 100%;
-    /* display: flexbox; */
-    /* flex-direction: column; */
 `
 
 const Input = styled.input`
@@ -38,21 +34,36 @@ const Input = styled.input`
 `
 
 function Form() {
+    const handleOnSubmit = () => {
+        // this.props.onSubmit(this.state)
+    }
     return (
         <NewFormContainer>
-            <NewForm>
-                <Input name="name-input" type="text" placeholder="First Name" />
-                <Input name="name-input" type="text" placeholder="Last Name"/>
-                <Input name="email-input" type="text" placeholder="Email"/>
-                {/* <div className="field">
+            <NewForm onSubmit={handleOnSubmit}>
+                <Input 
+                    name="first-name-input" 
+                    type="text" placeholder="First Name"
+                    // value={}
+                    />
+                <Input 
+                    name="last-name-input" 
+                    type="text" placeholder="Last Name"
+                    // value={}
+                    />
+                <Input 
+                    name="email-input"
+                    type="text" placeholder="Email"
+                    // value={}
+                    />
+                <div className="field">
                     <label>Enable as favorite </label>
                     <input
                     type="checkbox"
                     name="fav"
-                    checked={this.state.fav}
-                    onChange={this.handleChange}
+                    // checked={this.state.fav}
+                    // onChange={this.handleChange}
                     />
-                </div> */}
+                </div>
                 <Button text="save" />
             </NewForm>
         </NewFormContainer>

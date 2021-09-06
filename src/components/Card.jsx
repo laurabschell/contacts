@@ -1,12 +1,7 @@
-import React, { useState } from 'react'
-import { connect, useSelector } from "react-redux";
+import React from 'react'
 import styled from 'styled-components'
 import { Colors } from '../styles/styling-variables'
 import IconButton from './IconButton'
-// import { FaRegHeart, FaBan } from 'react-icons/fa'
-// import { connect } from 'react-redux'
-// import { favFalse, favTrue } from "./store/favReducer";
-
 
 const CardContainer = styled.div`
     background-color: ${Colors.navbarBgColor};
@@ -15,7 +10,7 @@ const CardContainer = styled.div`
     text-align: center;
     border-radius: 5px;
     box-shadow: ${Colors.shadow};
-    margin-bottom: 1.5rem;
+    margin: 0 1rem 1.5rem 1rem;
 `
 
 const ImgCard = styled.img`
@@ -23,7 +18,6 @@ const ImgCard = styled.img`
     border-radius: 50%;
     width: 4em;
 `
-
 
 const CardText = styled.div`
     font-family: 'Rubik', sans-serif;
@@ -33,18 +27,23 @@ const CardText = styled.div`
 `
 
 function Card(props) {
-    const isfav = useSelector((state) => state.favReducer);
     return (
         <CardContainer>
             <ImgCard 
                 src={props.UserImg} 
-                style={{border:`2.8px solid ${isfav ? Colors.heartColor : '#00000039'}`}}
+                style={{border:`2.8px solid ${props.defaultFav ? Colors.heartColor : '#00000039'}`}}
             />
             <CardText>
                 <h5>{props.UserFirstName} {props.UserLastName}</h5>
                 <p style={{fontSize: '.6rem'}}>{props.UserEmail}</p>
             </CardText>
-            <IconButton />
+            <IconButton 
+                defaultFav={props.defaultFav}
+                user={props.User} 
+                contactsList={props.contactsList}
+                favList={props.favList}
+                overview={props.overview}
+                />
         </CardContainer>
     )
 }

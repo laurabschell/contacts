@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import SectionTitle from '../components/SectionTitle'
 import CardDisplay from '../components/CardDisplay'
-import { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 const FavSection = styled.div`
     margin: 2em auto 0 auto;
@@ -9,7 +9,7 @@ const FavSection = styled.div`
 `
 
 function Favorites(props) {
-
+    const favList = useSelector(state => state.usersReducer.favList);
     return (
         <FavSection>
             <SectionTitle 
@@ -17,11 +17,12 @@ function Favorites(props) {
                 icon="heart"
             />
             <CardDisplay 
-                // lengthDisplay={props.lengthDisplay} 
-                fav={props.fav}
+                contactsList={favList}
+                defaultFav={true}
+                overview={props.overview}
             />
         </FavSection>
     )
 }
 
-export default Favorites
+export default Favorites;

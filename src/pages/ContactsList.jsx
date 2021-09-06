@@ -10,21 +10,25 @@ const ContactsListsection = styled.div`
 `
 
 function ContactsList(props) {
-
-    const users = useSelector(state => state.userReducer.users);
-    console.log(users);
-
+    const contactsList = useSelector(state => state.usersReducer.contactsList);
+    const favList = useSelector(state => state.usersReducer.favList);
     return (
         <ContactsListsection>
             <SectionTitle 
                 title="Contacts List" 
-                icon={props.icon}
+                icon="hash"
             />
+            {!props.overview && 
+                <CardDisplay 
+                    favList={favList}
+                    defaultFav={true}
+                    overview={props.overview}
+                />
+            }
             <CardDisplay 
-                // lengthDisplay={props.lengthDisplay} 
-                // fav={props.fav}
-                users={users}
-                // handleAddFavorite={props.handleAddFavorite}
+                contactsList={contactsList}
+                defaultFav={false}
+                overview={props.overview}
             />
         </ContactsListsection>
     )

@@ -10,8 +10,7 @@ const BadgeContainer = styled.div`
 function Badge() {
     return (
         <BadgeContainer>
-            <p>No favorites to show</p>
-
+            <p>No contacts to show here</p>
         </BadgeContainer>
     )
 }

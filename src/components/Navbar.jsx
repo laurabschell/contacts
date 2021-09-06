@@ -3,15 +3,11 @@ import styled from 'styled-components'
 import Button from './Button'
 import { Colors } from '../styles/styling-variables'
 import { Link } from 'react-router-dom';
-import Form from './Form';
 
 const Header = styled.header`
     background-color: ${Colors.navbarBgColor};
     height: 8vh;
-    /* min-height: 60px; */
-    /* position: fixed; */
     top: 0;
-    /* z-index: 1; */
     width: 100vw;
     box-shadow: ${Colors.shadow};
 `
@@ -75,20 +71,8 @@ function Navbar() {
                             </Link>
                         </MenuItems>
                     </Menu>
-
-                    {/* <Switch>
-                        <Route path="/">
-                            <Overview />
-                        </Route>
-                        <Route path="/favorites">
-                            <Favorites />
-                        </Route>
-                        <Route path="/contacts-list">
-                            <ContactsList />
-                        </Route>
-                    </Switch> */}
                     <Button text="new">
-                        <Link to={Form} />    
+                        <Link to="/new-contact-form" />    
                     </Button>
                 </Navigation>
             </Nav>
