@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Colors } from '../styles/styling-variables'
-import IconButton from './IconButton'
+import { Colors } from '../../styles/styling-variables'
+import IconButton from '../IconButton/IconButton'
 
 const CardContainer = styled.div`
     background-color: ${Colors.navbarBgColor};

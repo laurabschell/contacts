@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaHashtag, FaRegHeart } from 'react-icons/fa'
 import styled from 'styled-components'
-import { Colors } from '../styles/styling-variables'
+import { Colors } from '../../styles/styling-variables'
 
 const SectTitle = styled.div`
     margin: 0 0 1.2rem 0;

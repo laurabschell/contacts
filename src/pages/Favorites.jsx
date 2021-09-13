@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import SectionTitle from '../components/SectionTitle'
-import CardDisplay from '../components/CardDisplay'
+import SectionTitle from '../components/SectionTitle/SectionTitle'
+import CardDisplay from '../components/CardDisplay/CardDisplay'
 import { useSelector } from 'react-redux'
 
 const FavSection = styled.div`

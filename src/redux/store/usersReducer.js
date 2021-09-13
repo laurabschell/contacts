@@ -28,14 +28,21 @@ const userReducer = (state = initialState, action) => {
       };
 
     case "ADD_CONTACT": {
-      return {
-        ...state,
-        contactsList: [...state.contactsList, action.payload],
-      };
+      console.log(action.payload.first_name);
+      if (!action.payload.fav) {
+        return {
+          ...state,
+          contactsList: [...state.contactsList, action.payload],
+        };
+      } else {
+        return {
+          ...state,
+          favList: [...state.favList, action.payload],
+        };
+      }
     }
 
     case "REMOVE_CONTACT": {
-      console.log("remove contact", action.payload);
       return {
         contactsList: state.contactsList.filter(
           (contact) => contact.id !== action.payload

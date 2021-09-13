@@ -2,8 +2,8 @@ import React from 'react'
 import { FaRegHeart, FaBan, FaTrashAlt } from 'react-icons/fa'
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { removeFromFav, addToFav, removeContact } from '../redux/actions/usersActions';
-import { Colors } from '../styles/styling-variables';
+import { removeFromFav, addToFav, removeContact } from '../../redux/actions/usersActions';
+import { Colors } from '../../styles/styling-variables';
 
 const IconContainer = styled.div`
     display: flex;

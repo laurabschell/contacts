@@ -18,10 +18,11 @@ export const getUsersError = ({ error }) => {
   };
 };
 
-export const addContact = (user) => {
+export const addContact = (contact) => {
+  console.log(contact);
   return {
     type: "ADD_CONTACT",
-    payload: user,
+    payload: contact,
   };
 };
 

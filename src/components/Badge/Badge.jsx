@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Colors } from '../styles/styling-variables'
+import { Colors } from '../../styles/styling-variables'
 
 const BadgeContainer = styled.div`
     color: ${Colors.heartColor};

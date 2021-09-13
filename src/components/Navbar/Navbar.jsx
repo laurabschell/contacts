@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components'
-import Button from './Button'
-import { Colors } from '../styles/styling-variables'
+import { Colors } from '../../styles/styling-variables'
 import { Link } from 'react-router-dom';
+import { FaPlus } from 'react-icons/fa';
 
 const Header = styled.header`
     background-color: ${Colors.navbarBgColor};
@@ -47,11 +47,30 @@ const NavLinksStyle = {
     color: "black"
 }
 
-function Navbar() {
+const Button = styled.button`
+    background-color: ${props => props.text === "new" ? Colors.newGreen : 'beige'};
+    color: ${props => props.text === "new" ? 'white' : Colors.fontColor};
+    float: right;
+    width: 4rem;
+    padding: .5rem .8rem;
+    border-radius: 3px;
+    font-size: .7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: ${Colors.shadow};
+    cursor: pointer;
+    display: flex;
+`
+const FaPlusIconStyles = {
+    color: "white",
+    margin: "0 .3rem 0 0",
+}
+
+function Navbar(props) {
     return (
         <Header>
             <Nav>
-
                 <TitleH1>Contacts</TitleH1>
                 <Navigation>
                     <Menu>
@@ -71,9 +90,12 @@ function Navbar() {
                             </Link>
                         </MenuItems>
                     </Menu>
-                    <Button text="new">
-                        <Link to="/new-contact-form" />    
-                    </Button>
+                    <Button 
+                        text="new" 
+                        onClick={props.handleToggleForm} 
+                    >
+                        <FaPlus style={FaPlusIconStyles} />
+                        new</Button>
                 </Navigation>
             </Nav>
         </Header>
