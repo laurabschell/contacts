@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import ContactsList from "./pages/ContactsList";
-import Favorites from "./pages/Favorites";
-import Overview from "./pages/Overview";
+import ContactsList from "./pages/ContactsList/ContactsList";
+import Favorites from "./pages/Favorites/Favorites";
+import Overview from "./pages/Overview/Overview";
 import Layout from "./components/Layout";
 import useGetUsers from "./hooks/useGetUsers";
 

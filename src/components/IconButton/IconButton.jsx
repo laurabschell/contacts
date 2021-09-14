@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { removeFromFav, addToFav, removeContact } from '../../redux/actions/usersActions';
 import { Colors } from '../../styles/styling-variables';
+import PropTypes from 'prop-types';
 
 const IconContainer = styled.div`
     display: flex;
@@ -33,5 +34,13 @@ function IconButton(props) {
         </IconContainer>
     )
 }
+
+IconButton.propTypes = {
+    isFav: PropTypes.bool,
+    user: PropTypes.shape({
+        id: PropTypes.number
+    }),
+    overview: PropTypes.bool
+};
   
 export default IconButton;

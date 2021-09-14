@@ -10,30 +10,37 @@ const PaginationBar = styled.div`
   border-radius: 5px;
   box-shadow: ${Colors.shadow};
   margin: 1rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: flex-end;
 `
 
-function Pagination(props) {
-  const totalItems = props.totalItems;
-  const usersPerPage = props.usersPerPage;
-  const paginate = props.paginate;
+const PageItem = styled.div`
+  color: grey;
+  margin: 1rem;
+`
+
+const PageLink = styled.p`
+  cursor: pointer;
+`
+
+const Pagination = ({ usersPerPage, totalItems, paginate }) => {
   const pageNumbers = [];
 
-  for (let i = 1; 1 <= Math.ceil(totalItems / usersPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalItems / usersPerPage); i++) {
     pageNumbers.push(i);
   }
+  console.log(pageNumbers)
 
   return (
     <PaginationBar>
-      <p>paginacion</p>
-      <ul>
-        {pageNumbers.map((number) => (
-          <li key={number}>
-            <a onClick={() => paginate(number)} href="!#">
-              {number}
-            </a>
-          </li>
-        ))}
-      </ul>
+      {pageNumbers.map((number) => (
+        <PageItem key={number}>
+          <PageLink onClick={() => paginate(number)}>
+            {number}
+          </PageLink>
+        </PageItem>
+      ))}
     </PaginationBar>
   );
 }

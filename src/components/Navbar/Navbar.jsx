@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Colors } from '../../styles/styling-variables'
 import { Link } from 'react-router-dom';
 import { FaPlus } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
 const Header = styled.header`
     background-color: ${Colors.navbarBgColor};
@@ -101,5 +102,9 @@ function Navbar(props) {
         </Header>
     )
 }
+
+Navbar.propTypes = {
+    handleToggleForm: PropTypes.func
+};
 
 export default Navbar;

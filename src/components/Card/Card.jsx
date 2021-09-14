@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Colors } from '../../styles/styling-variables'
 import IconButton from '../IconButton/IconButton'
+import PropTypes from 'prop-types';
 
 const CardContainer = styled.div`
     background-color: ${Colors.navbarBgColor};
@@ -47,6 +48,18 @@ function Card(props) {
         </CardContainer>
     )
 }
+
+Card.propTypes = {
+    defaultFav: PropTypes.bool,
+    user: PropTypes.shape({
+        first_name: PropTypes.string,
+        last_name: PropTypes.string,
+        email: PropTypes.string
+    }),
+    favList: PropTypes.array,
+    contactsList: PropTypes.array,
+    overview: PropTypes.bool
+};
 
 export default Card;
 

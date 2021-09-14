@@ -2,6 +2,7 @@ import React from 'react'
 import { FaHashtag, FaRegHeart } from 'react-icons/fa'
 import styled from 'styled-components'
 import { Colors } from '../../styles/styling-variables'
+import PropTypes from 'prop-types';
 
 const SectTitle = styled.div`
     margin: 0 0 1.2rem 0;
@@ -27,5 +28,10 @@ function SectionTitle(props) {
         </SectTitle>
     )
 }
+
+SectionTitle.propTypes = {
+    icon: PropTypes.string,
+    title: PropTypes.string
+};
 
 export default SectionTitle

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Colors } from '../../styles/styling-variables'
 import defaultIMG from "../../assets/user.png"
+import PropTypes from 'prop-types';
 
 const NewFormContainer = styled.section`
     background-color: ${Colors.newGreen};
@@ -172,5 +173,17 @@ class Form extends React.Component {
     }
 
 }
+
+Form.propTypes = {
+    id: PropTypes.number,
+    first_name: PropTypes.string,
+    last_name: PropTypes.string,
+    email: PropTypes.string,
+    fav: PropTypes.bool,
+    isValid: PropTypes.bool,
+    avatar: PropTypes.string,
+    nameError: PropTypes.string,
+    emailError: PropTypes.string
+};
 
 export default Form
