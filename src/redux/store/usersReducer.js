@@ -16,7 +16,10 @@ const userReducer = (state = initialState, action) => {
     case "GETUSERSSUCCESS":
       return {
         ...state,
-        contactsList: action.payload.contactsList.data,
+        contactsList: action.payload.contactsList.data.map((contact) => ({
+          ...contact,
+          is_favorite: false,
+        })),
         loading: false,
       };
 
@@ -68,12 +71,15 @@ const userReducer = (state = initialState, action) => {
     case "REMOVE_FROM_FAV": {
       return {
         ...state,
-        contactsList: [...state.contactsList, action.payload.newFav],
-        favList: [
-          ...state.favList.filter(
-            (contact) => contact.id !== action.payload.id
-          ),
+        contactsList: [
+          ...state.contactsList,
+          { ...action.payload.newFav, isFav: !action.payload.newFav.isFav },
         ],
+        // favList: [
+        //   ...state.favList.filter(
+        //     (contact) => contact.id !== action.payload.id
+        //   ),
+        // ],
       };
     }
 

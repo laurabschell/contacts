@@ -19,7 +19,6 @@ function Favorites(props) {
             />
             <CardDisplay 
                 contactsList={favList}
-                defaultFav={true}
                 overview={props.overview}
             />
         </FavSection>
@@ -27,7 +26,6 @@ function Favorites(props) {
 }
 
 Favorites.propTypes = {
-    defaultFav: PropTypes.bool,
     user: PropTypes.shape({
         first_name: PropTypes.string,
         last_name: PropTypes.string,

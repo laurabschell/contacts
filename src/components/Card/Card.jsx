@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 const CardContainer = styled.div`
     background-color: ${Colors.navbarBgColor};
-    width: 11vw;
+    width: 12vw;
     padding: 1.5em 0;
     text-align: center;
     border-radius: 5px;
@@ -28,19 +28,19 @@ const CardText = styled.div`
 `
 
 function Card(props) {
+    const user = props.User;
     return (
         <CardContainer>
             <ImgCard 
                 src={props.UserImg} 
-                style={{border:`2.8px solid ${props.defaultFav ? Colors.heartColor : '#00000039'}`}}
+                style={{border:`2.8px solid ${user.is_favorite ? Colors.heartColor : '#00000039'}`}}
             />
             <CardText>
                 <h5>{props.UserFirstName} {props.UserLastName}</h5>
                 <p style={{fontSize: '.6rem'}}>{props.UserEmail}</p>
             </CardText>
             <IconButton 
-                defaultFav={props.defaultFav}
-                user={props.User} 
+                user={user} 
                 contactsList={props.contactsList}
                 favList={props.favList}
                 overview={props.overview}
@@ -50,11 +50,11 @@ function Card(props) {
 }
 
 Card.propTypes = {
-    defaultFav: PropTypes.bool,
     user: PropTypes.shape({
         first_name: PropTypes.string,
         last_name: PropTypes.string,
-        email: PropTypes.string
+        email: PropTypes.string,
+        is_favorite: PropTypes.bool
     }),
     favList: PropTypes.array,
     contactsList: PropTypes.array,

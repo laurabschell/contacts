@@ -14,17 +14,16 @@ const IconContainer = styled.div`
 function IconButton(props) {
     const dispatch = useDispatch();
     const user = props.user;
-    const isFav = props.defaultFav;
     return (
         <IconContainer>
-            {!isFav ? (
+            {!user.is_favorite ? (
                 <FaRegHeart 
                 style={{"color": Colors.heartColor, "cursor": "pointer"}} 
-                onClick={() => dispatch(addToFav(user.id, user))}/>
+                onClick={() => dispatch(addToFav(user.id, { ...user, is_favorite: !user.is_favorite }))}/>
             ) : (
                 <FaBan 
                 style={{"color": "gray", "cursor": "pointer"}} 
-                onClick={() => dispatch(removeFromFav(user.id, user))} />
+                onClick={() => dispatch(removeFromFav(user.id, { ...user, is_favorite: !user.is_favorite }))} />
             )}
             {!props.overview && 
                 <FaTrashAlt 
@@ -36,9 +35,9 @@ function IconButton(props) {
 }
 
 IconButton.propTypes = {
-    isFav: PropTypes.bool,
     user: PropTypes.shape({
-        id: PropTypes.number
+        id: PropTypes.number,
+        is_favorite: PropTypes.bool
     }),
     overview: PropTypes.bool
 };

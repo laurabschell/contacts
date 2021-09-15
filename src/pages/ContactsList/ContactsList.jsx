@@ -16,20 +16,20 @@ function ContactsList(props) {
     const [usersPerPage] = useState(8);
 
     const contactsList = useSelector((state) => state.usersReducer.contactsList);
+
     const favList = useSelector(state => state.usersReducer.favList);
     const error = useSelector((state) => state.usersReducer.error);
     const loading = useSelector((state) => state.usersReducer.loading);
     console.log(contactsList);
     console.log(error);
     console.log(loading);
-
+    console.log(favList);
+    
     const indexOfLastUser = currentPage * usersPerPage;
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUsers = contactsList.slice(indexOfFirstUser, indexOfLastUser);
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-    console.log(contactsList.length)
 
     return (
         <ContactsListsection>
@@ -37,16 +37,14 @@ function ContactsList(props) {
                 title="Contacts List" 
                 icon="hash"
             />
-            {!props.overview && 
+            {/* {!props.overview && 
                 <CardDisplay 
                     favList={favList}
-                    defaultFav={true}
                     overview={props.overview}
                 />
-            }
+            } */}
             <CardDisplay 
                 contactsList={currentUsers}
-                defaultFav={false}
                 overview={props.overview}
             />
             <Pagination
@@ -59,7 +57,6 @@ function ContactsList(props) {
 }
 
 ContactsList.propTypes = {
-    defaultFav: PropTypes.bool,
     user: PropTypes.shape({
         first_name: PropTypes.string,
         last_name: PropTypes.string,

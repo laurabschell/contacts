@@ -6,14 +6,13 @@ import PropTypes from 'prop-types';
 const CardListStyles = styled.div`
     display: flex;
     flex-wrap: wrap;
-    width: 90%;
+    width: 98%;
     margin: 0 auto;
 `
 
 const CardDisplay = ({
     contactsList = [],
     favList = [],
-    defaultFav, 
     overview, 
     loading, 
     error
@@ -29,7 +28,6 @@ const CardDisplay = ({
                     UserFirstName= {contact.first_name}
                     UserLastName= {contact.last_name}
                     UserEmail= {contact.email}
-                    defaultFav={defaultFav}
                     User={contact}
                     overview={overview}
                 /> 
@@ -40,7 +38,6 @@ const CardDisplay = ({
                     UserFirstName= {contact.first_name}
                     UserLastName= {contact.last_name}
                     UserEmail= {contact.email}
-                    defaultFav={defaultFav}
                     User={contact}
                     overview={overview}
                 /> 
@@ -55,3 +52,5 @@ CardDisplay.propTypes = {
 };
 
 export default CardDisplay
+
+

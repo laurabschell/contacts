@@ -1,23 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import { Colors } from '../../styles/styling-variables'
+import PropTypes from 'prop-types';
 
 const PaginationBar = styled.div`    
   background-color: ${Colors.navbarBgColor};
-  width: 100%w;
-  padding: 1em;
-  text-align: end;
+  margin: 1rem;
+  padding: 0 1.5em;
   border-radius: 5px;
   box-shadow: ${Colors.shadow};
-  margin: 1rem;
   font-weight: 700;
+  font-size: .8rem;
   display: flex;
   justify-content: flex-end;
 `
 
 const PageItem = styled.div`
   color: grey;
-  margin: 1rem;
+  margin: .8rem;
 `
 
 const PageLink = styled.p`
@@ -44,5 +44,12 @@ const Pagination = ({ usersPerPage, totalItems, paginate }) => {
     </PaginationBar>
   );
 }
+
+Pagination.propTypes = {
+  usersPerPage: PropTypes.number,
+  totalItems: PropTypes.number,
+  paginate: PropTypes.func,
+  pageNumbers: PropTypes.array
+};
 
 export default Pagination;
