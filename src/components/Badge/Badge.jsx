@@ -4,7 +4,7 @@ import { Colors } from '../../styles/styling-variables'
 
 const BadgeContainer = styled.div`
     color: ${Colors.heartColor};
-    font-size: .8rem;
+    line-height: 5rem;
 `
 
 function Badge() {

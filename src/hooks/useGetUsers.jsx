@@ -10,7 +10,7 @@ const useGetUsers = () => {
     useEffect(() => {
         dispatch(getUsersRequest());
         axios.get(api)
-            .then((response) => dispatch(getUsersSuccess({contactsList: response.data})))
+            .then((response) => dispatch(getUsersSuccess({users: response.data})))
             .catch((error) => dispatch(getUsersError({error: error})))
     }, [])
 }

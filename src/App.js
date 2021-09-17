@@ -8,6 +8,7 @@ import useGetUsers from "./hooks/useGetUsers";
 
 const App = () => {
   useGetUsers();
+
   return (
     <Router>
       <Layout>

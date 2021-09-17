@@ -20,7 +20,7 @@ const Title = styled.h2`
 function SectionTitle(props) {
     return (
         <SectTitle>
-            {props.icon === "heart" 
+            {props.title === "Favorites" 
                 ? <FaRegHeart style={{color: Colors.heartColor}}/> 
                 : <FaHashtag style={{color: Colors.hashtagColor}} 
             />}

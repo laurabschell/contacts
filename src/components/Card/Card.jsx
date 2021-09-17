@@ -28,22 +28,19 @@ const CardText = styled.div`
 `
 
 function Card(props) {
-    const user = props.User;
+    const user = props.user;
     return (
         <CardContainer>
             <ImgCard 
-                src={props.UserImg} 
+                src={props.user_avatar} 
                 style={{border:`2.8px solid ${user.is_favorite ? Colors.heartColor : '#00000039'}`}}
             />
             <CardText>
-                <h5>{props.UserFirstName} {props.UserLastName}</h5>
-                <p style={{fontSize: '.6rem'}}>{props.UserEmail}</p>
+                <h5>{props.user_first_name} {props.user_last_name}</h5>
+                <p style={{fontSize: '.6rem'}}>{props.user_email}</p>
             </CardText>
             <IconButton 
-                user={user} 
-                contactsList={props.contactsList}
-                favList={props.favList}
-                overview={props.overview}
+                user={user} notMain={props.notMain}
                 />
         </CardContainer>
     )

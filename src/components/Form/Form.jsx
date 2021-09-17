@@ -76,7 +76,7 @@ const defaultState = {
     first_name: "",
     last_name: "",
     email: "",
-    fav: false,
+    is_favorite: false,
     nameError: "",
     emailError: ""
 }
@@ -160,9 +160,9 @@ class Form extends React.Component {
                         />
                         {this.state.emailError && <ErrorText>{this.state.emailError}</ErrorText>}
                     <CheckBox 
-                        name="fav" 
+                        name="is_favorite" 
                         type="checkbox"
-                        value={this.state.fav}
+                        value={this.state.is_favorite}
                         onChange={e => this.handleOnChange(e)}
                         />
                         <CheckBoxLabel>Enable as favorite</CheckBoxLabel>

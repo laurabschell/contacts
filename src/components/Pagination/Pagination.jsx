@@ -24,10 +24,10 @@ const PageLink = styled.p`
   cursor: pointer;
 `
 
-const Pagination = ({ usersPerPage, totalItems, paginate }) => {
+const Pagination = ({ contactsPerPage, totalItems, paginate }) => {
   const pageNumbers = [];
 
-  for (let i = 1; i <= Math.ceil(totalItems / usersPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalItems / contactsPerPage); i++) {
     pageNumbers.push(i);
   }
   console.log(pageNumbers)

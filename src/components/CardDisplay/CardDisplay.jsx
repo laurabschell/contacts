@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Card from '../Card/Card'
 import PropTypes from 'prop-types';
+import Badge from '../Badge/Badge'
 
 const CardListStyles = styled.div`
     display: flex;
@@ -11,37 +12,26 @@ const CardListStyles = styled.div`
 `
 
 const CardDisplay = ({
-    contactsList = [],
-    favList = [],
-    overview, 
-    loading, 
-    error
+    items,
+    notMain
     }) => {        
-        
+       
     return (
         <CardListStyles>
-            {loading && <h2>Loading... Please wait</h2>}
-            {error && <h2>There's been an error</h2>}
-            {contactsList.map((contact) => (
-                <Card key={contact.id}
-                    UserImg = {contact.avatar}
-                    UserFirstName= {contact.first_name}
-                    UserLastName= {contact.last_name}
-                    UserEmail= {contact.email}
-                    User={contact}
-                    overview={overview}
-                /> 
-            ))}
-            {favList.map((contact) => (
-                <Card key={contact.id}
-                    UserImg = {contact.avatar}
-                    UserFirstName= {contact.first_name}
-                    UserLastName= {contact.last_name}
-                    UserEmail= {contact.email}
-                    User={contact}
-                    overview={overview}
-                /> 
-            ))}
+            {items.length === 0 ? <Badge /> :
+            items.map((user) => (
+            <Card
+                user_avatar= {user.avatar}
+              user_id={user.id}
+              user_first_name={user.first_name}
+              user_last_name={user.last_name}
+              user_email={user.email}
+              user_is_favorite={user.is_favorite}
+              user={user}
+              notMain={notMain}
+            />
+          ))
+        }
         </CardListStyles>
     );
 }

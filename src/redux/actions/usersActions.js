@@ -4,10 +4,10 @@ export const getUsersRequest = () => {
   };
 };
 
-export const getUsersSuccess = ({ contactsList }) => {
+export const getUsersSuccess = ({ users }) => {
   return {
     type: "GETUSERSSUCCESS",
-    payload: { contactsList },
+    payload: { users },
   };
 };
 

@@ -1,8 +1,11 @@
 const initialState = {
-  contactsList: [],
-  favList: [],
+  users: [],
+  contactsTab: [],
+  favoritesTab: [],
+  favItems: [],
+  notFavItems: [],
   loading: false,
-  error: "",
+  error: false,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -16,70 +19,84 @@ const userReducer = (state = initialState, action) => {
     case "GETUSERSSUCCESS":
       return {
         ...state,
-        contactsList: action.payload.contactsList.data.map((contact) => ({
-          ...contact,
-          is_favorite: false,
-        })),
+        users: action.payload.users.data,
+        notFavItems: action.payload.users.data,
+        contactsTab: action.payload.users.data,
         loading: false,
       };
 
     case "GETUSERSERROR":
       return {
         ...state,
-        error: action.payload.error,
+        error: true,
         loading: false,
       };
 
+    case "REMOVE_CONTACT": {
+      return {
+        contactsTab: state.contactsTab.filter(
+          (contact) => contact.id !== action.payload
+        ),
+        favoritesTab: state.favoritesTab.filter(
+          (contact) => contact.id !== action.payload
+        ),
+        notFavItems: state.notFavItems.filter(
+          (contact) => contact.id !== action.payload
+        ),
+        favItems: state.favItems.filter(
+          (contact) => contact.id !== action.payload
+        ),
+      };
+    }
+
     case "ADD_CONTACT": {
       console.log(action.payload.first_name);
-      if (!action.payload.fav) {
+      if (action.payload.is_favorite) {
         return {
           ...state,
-          contactsList: [...state.contactsList, action.payload],
+          favoritesTab: [...state.favoritesTab, action.payload],
+          favItems: [action.payload, ...state.favItems],
         };
       } else {
         return {
           ...state,
-          favList: [...state.favList, action.payload],
+          contactsTab: [...state.contactsTab, action.payload],
+          notFavItems: [action.payload, ...state.notFavItems],
         };
       }
-    }
-
-    case "REMOVE_CONTACT": {
-      return {
-        contactsList: state.contactsList.filter(
-          (contact) => contact.id !== action.payload
-        ),
-        favList: state.favList.filter(
-          (contact) => contact.id !== action.payload
-        ),
-      };
     }
 
     case "ADD_TO_FAV": {
       return {
         ...state,
-        favList: [...state.favList, action.payload.newFav],
-        contactsList: [
-          ...state.contactsList.filter(
-            (contact) => contact.id !== action.payload.id
-          ),
+        favItems: [action.payload.newFav, ...state.favItems],
+        notFavItems: [
+          ...state.notFavItems.filter((item) => item.id !== action.payload.id),
         ],
+        favoritesTab: [...state.favoritesTab, action.payload.newFav],
+        contactsTab: state.contactsTab.map((item) =>
+          item.id === action.payload.id
+            ? { ...item, is_favorite: !item.is_favorite }
+            : item
+        ),
       };
     }
 
     case "REMOVE_FROM_FAV": {
       return {
         ...state,
-        contactsList: [
-          ...state.contactsList,
-          { ...action.payload.newFav, isFav: !action.payload.newFav.isFav },
+        favItems: [
+          ...state.favItems.filter((item) => item.id !== action.payload.id),
         ],
-        // favList: [
-        //   ...state.favList.filter(
-        //     (contact) => contact.id !== action.payload.id
-        //   ),
-        // ],
+        notFavItems: [...state.notFavItems, action.payload.newFav],
+        favoritesTab: [
+          ...state.favoritesTab.filter((item) => item.id !== action.payload.id),
+        ],
+        contactsTab: state.contactsTab.map((item) =>
+          item.id === action.payload.id
+            ? { ...item, is_favorite: !item.is_favorite }
+            : item
+        ),
       };
     }
 

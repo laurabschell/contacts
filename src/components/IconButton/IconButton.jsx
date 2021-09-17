@@ -25,7 +25,7 @@ function IconButton(props) {
                 style={{"color": "gray", "cursor": "pointer"}} 
                 onClick={() => dispatch(removeFromFav(user.id, { ...user, is_favorite: !user.is_favorite }))} />
             )}
-            {!props.overview && 
+            {props.notMain && 
                 <FaTrashAlt 
                 style={{"color" : Colors.trashColor, "cursor": "pointer"}}
                  onClick={() => dispatch(removeContact(user.id))}/>
