@@ -32,12 +32,12 @@ function Card(props) {
     return (
         <CardContainer>
             <ImgCard 
-                src={props.user_avatar} 
+                src={user.avatar} 
                 style={{border:`2.8px solid ${user.is_favorite ? Colors.heartColor : '#00000039'}`}}
             />
             <CardText>
-                <h5>{props.user_first_name} {props.user_last_name}</h5>
-                <p style={{fontSize: '.6rem'}}>{props.user_email}</p>
+                <h5>{user.first_name} {user.last_name}</h5>
+                <p style={{fontSize: '.6rem'}}>{user.email}</p>
             </CardText>
             <IconButton 
                 user={user} notMain={props.notMain}
@@ -48,14 +48,15 @@ function Card(props) {
 
 Card.propTypes = {
     user: PropTypes.shape({
-        first_name: PropTypes.string,
-        last_name: PropTypes.string,
-        email: PropTypes.string,
+        user_avatar: PropTypes.string,
+        user_first_name: PropTypes.string,
+        user_last_name: PropTypes.string,
+        user_email: PropTypes.string,
         is_favorite: PropTypes.bool
     }),
-    favList: PropTypes.array,
-    contactsList: PropTypes.array,
-    overview: PropTypes.bool
+    border: PropTypes.string,
+    notMain: PropTypes.bool,
+    onClick: PropTypes.func
 };
 
 export default Card;

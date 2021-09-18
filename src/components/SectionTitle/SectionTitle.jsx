@@ -30,7 +30,6 @@ function SectionTitle(props) {
 }
 
 SectionTitle.propTypes = {
-    icon: PropTypes.string,
     title: PropTypes.string
 };
 

@@ -13,20 +13,16 @@ const CardListStyles = styled.div`
 
 const CardDisplay = ({
     items,
-    notMain
+    notMain,
+    badgeText
     }) => {        
        
     return (
         <CardListStyles>
-            {items.length === 0 ? <Badge /> :
+            {items.length === 0 ? <Badge badgeText={badgeText} /> :
             items.map((user) => (
             <Card
-                user_avatar= {user.avatar}
-              user_id={user.id}
-              user_first_name={user.first_name}
-              user_last_name={user.last_name}
-              user_email={user.email}
-              user_is_favorite={user.is_favorite}
+            key={user.id}
               user={user}
               notMain={notMain}
             />
@@ -37,8 +33,9 @@ const CardDisplay = ({
 }
 
 CardDisplay.propTypes = {
-    favList: PropTypes.array,
-    contactsList: PropTypes.array
+    items: PropTypes.array,
+    notMain: PropTypes.bool,
+    badgeText: PropTypes.string,
 };
 
 export default CardDisplay

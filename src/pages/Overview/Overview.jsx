@@ -54,10 +54,10 @@ function Overview() {
     return (
         <OverviewSection>
             <SectionTitle title="Favorites" />
-            <CardDisplay items={slicedFavItems} />
+            <CardDisplay items={slicedFavItems} badgeText= "No contacts here for now" />
 
             <SectionTitle title="Contacts" />
-            <CardDisplay items={currentNotFavItems} />
+            <CardDisplay items={currentNotFavItems} badgeText = "All your contacts are in the favorites section"/>
 
             <Pagination
                 contactsPerPage={contactsPerPage}
@@ -69,16 +69,16 @@ function Overview() {
 }
 
 Overview.propTypes = {
-    defaultFav: PropTypes.bool,
-    user: PropTypes.shape({
-        first_name: PropTypes.string,
-        last_name: PropTypes.string,
-        email: PropTypes.string
-    }),
-    
-    favList: PropTypes.array,
-    contactsList: PropTypes.array,
-    overview: PropTypes.bool
+    loading: PropTypes.bool,
+    error: PropTypes.bool,
+    currentPage: PropTypes.number,
+    contactsPerPage: PropTypes.number,
+    favItems: PropTypes.array,
+    notFavItems: PropTypes.array,
+    slicedFavItems: PropTypes.array,
+    indexOfLastUser: PropTypes.number,
+    indexOfFirstUser: PropTypes.number,
+    currentNotFavItems: PropTypes.array
 };
 
 export default Overview

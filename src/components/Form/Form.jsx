@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 const NewFormContainer = styled.section`
     background-color: ${Colors.newGreen};
     width: 40vw;
-    height: 50vh;
     margin: 0 auto;
     border-radius: 0 0 5px 5px;
     box-shadow: ${Colors.shadow};
@@ -179,7 +178,7 @@ Form.propTypes = {
     first_name: PropTypes.string,
     last_name: PropTypes.string,
     email: PropTypes.string,
-    fav: PropTypes.bool,
+    is_favorite: PropTypes.bool,
     isValid: PropTypes.bool,
     avatar: PropTypes.string,
     nameError: PropTypes.string,

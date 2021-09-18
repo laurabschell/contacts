@@ -3,7 +3,7 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import ContactsList from "./pages/ContactsList/ContactsList";
 import Favorites from "./pages/Favorites/Favorites";
 import Overview from "./pages/Overview/Overview";
-import Layout from "./components/Layout";
+import Layout from "./components/Layout/Layout";
 import useGetUsers from "./hooks/useGetUsers";
 
 const App = () => {

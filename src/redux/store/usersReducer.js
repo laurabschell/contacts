@@ -55,6 +55,7 @@ const userReducer = (state = initialState, action) => {
         return {
           ...state,
           favoritesTab: [...state.favoritesTab, action.payload],
+          contactsTab: [...state.contactsTab, action.payload],
           favItems: [action.payload, ...state.favItems],
         };
       } else {

@@ -46,7 +46,7 @@ const Pagination = ({ contactsPerPage, totalItems, paginate }) => {
 }
 
 Pagination.propTypes = {
-  usersPerPage: PropTypes.number,
+  contactsPerPage: PropTypes.number,
   totalItems: PropTypes.number,
   paginate: PropTypes.func,
   pageNumbers: PropTypes.array

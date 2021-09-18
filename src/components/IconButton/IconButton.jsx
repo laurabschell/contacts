@@ -8,12 +8,12 @@ import PropTypes from 'prop-types';
 
 const IconContainer = styled.div`
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 `
 
-function IconButton(props) {
+function IconButton({ user, notMain = false, onClick, color }) {
+
     const dispatch = useDispatch();
-    const user = props.user;
     return (
         <IconContainer>
             {!user.is_favorite ? (
@@ -25,7 +25,7 @@ function IconButton(props) {
                 style={{"color": "gray", "cursor": "pointer"}} 
                 onClick={() => dispatch(removeFromFav(user.id, { ...user, is_favorite: !user.is_favorite }))} />
             )}
-            {props.notMain && 
+            {notMain && 
                 <FaTrashAlt 
                 style={{"color" : Colors.trashColor, "cursor": "pointer"}}
                  onClick={() => dispatch(removeContact(user.id))}/>
@@ -39,7 +39,10 @@ IconButton.propTypes = {
         id: PropTypes.number,
         is_favorite: PropTypes.bool
     }),
-    overview: PropTypes.bool
+    notMain: PropTypes.bool,
+    onClick: PropTypes.func,
+    color: PropTypes.string,
+    
 };
   
 export default IconButton;
